@@ -846,23 +846,23 @@ Our team combines technical expertise, content strategy, analytics, and digital 
 
 <form class="contact-form" action="https://formspree.io/f/mpqvlpvr" method="POST">
 <div class="form-group">
-<input type="text" placeholder="Name" aria-label="Name">
+<input type="text" name="name" placeholder="Name" aria-label="Name">
 </div>
 
 <div class="form-group">
-<input type="email" placeholder="Email" aria-label="Email">
+<input type="email" name="email" placeholder="Email" aria-label="Email" required>
 </div>
 
 <div class="form-group">
-<input type="tel" placeholder="Phone" aria-label="Phone">
+<input type="tel" name="phone" placeholder="Phone" aria-label="Phone">
 </div>
 
 <div class="form-group">
-<input type="url" placeholder="Website" aria-label="Website">
+<input type="url" name="website" placeholder="Website" aria-label="Website">
 </div>
 
 <div class="form-group">
-<select aria-label="Service Needed">
+<select name="service" aria-label="Service Needed">
 <option>Technical SEO</option>
 <option>Content SEO</option>
 <option>Local SEO</option>
@@ -871,7 +871,7 @@ Our team combines technical expertise, content strategy, analytics, and digital 
 </div>
 
 <div class="form-group">
-<textarea placeholder="Message"></textarea>
+<textarea name="message" placeholder="Message"></textarea>
 </div>
 
 <button type="submit" class="btn btn-primary">
