@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://seo-agency-3g1.pages.dev/sitemap.xml
+Sitemap: https://hirank.pages.dev/sitemap.xml
