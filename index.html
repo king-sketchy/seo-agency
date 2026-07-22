@@ -7,8 +7,6 @@
 <title>HiRank Marketing & Talent Solutions | SEO & VA Sourcing</title>
 <meta name="description"
 content="Professional SEO services and elite Virtual Assistant (VA) talent sourcing to help you scale your business efficiently.">
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
 
 <meta name="keywords" content="SEO Agency, VA Sourcing, Virtual Assistants, Technical SEO, Content SEO, Local SEO, Talent Solutions">
 <meta name="author" content="HiRank Marketing & Talent Solutions">
@@ -39,7 +37,8 @@ content="width=device-width, initial-scale=1.0">
     --light:#f8fafc;
     --text:#334155;
     --border:rgba(255,255,255,.15);
-    --shadow:0 20px 40px rgba(15,23,42,.15);
+    --shadow:0 20px 40px rgba(15,23,42,.1);
+    --shadow-lg:0 25px 50px rgba(79,70,229,.18);
     --radius:20px;
     --gradient:linear-gradient(135deg,#4f46e5,#7c3aed,#06b6d4);
 }
@@ -73,7 +72,12 @@ img{
 }
 
 section{
-    padding:90px 0;
+    padding:100px 0;
+    scroll-margin-top:90px;
+}
+
+.section-alt{
+    background:linear-gradient(180deg,#f8fafc,#ffffff);
 }
 
 h1,h2,h3,h4{
@@ -81,38 +85,61 @@ h1,h2,h3,h4{
     line-height:1.2;
 }
 
-.section-title{
-    text-align:center;
-    margin-bottom:20px;
-    font-size:2.5rem;
-    font-weight:800;
+.eyebrow{
+    display:inline-block;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    font-size:.8rem;
+    font-weight:700;
+    color:var(--primary);
+    background:rgba(79,70,229,.1);
+    padding:6px 16px;
+    border-radius:999px;
+    margin-bottom:16px;
 }
 
-.section-subtitle{
+.section-header{
     text-align:center;
     max-width:700px;
     margin:0 auto 60px;
 }
 
+.section-title{
+    font-size:2.5rem;
+    font-weight:800;
+    margin-bottom:16px;
+}
+
+.section-subtitle{
+    color:var(--text);
+    font-size:1.05rem;
+}
+
 .btn{
     display:inline-block;
-    padding:14px 28px;
+    padding:14px 30px;
     border-radius:999px;
     text-decoration:none;
     font-weight:600;
     transition:.3s;
     cursor:pointer;
+    border:2px solid transparent;
 }
 
 .btn-primary{
     background:var(--gradient);
     color:white;
+    box-shadow:var(--shadow-lg);
 }
 
 .btn-secondary{
-    border:1px solid rgba(255,255,255,.25);
-    background:rgba(255,255,255,.1);
-    backdrop-filter:blur(10px);
+    border:2px solid var(--dark);
+    background:transparent;
+    color:var(--dark);
+}
+
+.btn-secondary:hover{
+    background:var(--dark);
     color:white;
 }
 
@@ -124,9 +151,9 @@ header{
     position:sticky;
     top:0;
     z-index:1000;
-    background:rgba(255,255,255,.9);
+    background:rgba(255,255,255,.85);
     backdrop-filter:blur(12px);
-    border-bottom:1px solid rgba(0,0,0,.05);
+    border-bottom:1px solid rgba(15,23,42,.06);
 }
 
 .navbar{
@@ -141,6 +168,7 @@ header{
     font-weight:800;
     background:var(--gradient);
     -webkit-background-clip:text;
+    background-clip:text;
     color:transparent;
 }
 
@@ -154,6 +182,33 @@ header{
     text-decoration:none;
     color:var(--dark);
     font-weight:600;
+    position:relative;
+}
+
+.nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-4px;
+    width:0;
+    height:2px;
+    background:var(--gradient);
+    transition:.25s;
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+.nav-cta{
+    background:var(--gradient);
+    color:white !important;
+    padding:10px 22px;
+    border-radius:999px;
+}
+
+.nav-cta::after{
+    display:none;
 }
 
 .hamburger{
@@ -161,6 +216,8 @@ header{
     flex-direction:column;
     gap:5px;
     cursor:pointer;
+    background:none;
+    border:none;
 }
 
 .hamburger span{
@@ -171,12 +228,13 @@ header{
 }
 
 .hero{
-    min-height:100vh;
+    min-height:92vh;
     display:flex;
     align-items:center;
     background:
-    radial-gradient(circle at top left,rgba(79,70,229,.2),transparent 40%),
-    radial-gradient(circle at bottom right,rgba(124,58,237,.2),transparent 40%);
+    radial-gradient(circle at top left,rgba(79,70,229,.16),transparent 45%),
+    radial-gradient(circle at bottom right,rgba(124,58,237,.16),transparent 45%),
+    #fbfbff;
 }
 
 .hero-content{
@@ -203,7 +261,7 @@ header{
 .hero p{
     font-size:1.2rem;
     max-width:750px;
-    margin:auto auto 35px;
+    margin:0 auto 35px;
 }
 
 .hero-buttons{
@@ -211,10 +269,10 @@ header{
     justify-content:center;
     gap:15px;
     flex-wrap:wrap;
+    margin-bottom:70px;
 }
 
 .stats{
-    margin-top:80px;
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:25px;
@@ -223,48 +281,54 @@ header{
 .stat-card{
     padding:30px;
     border-radius:var(--radius);
-    background:rgba(255,255,255,.7);
+    background:rgba(255,255,255,.8);
     backdrop-filter:blur(20px);
     box-shadow:var(--shadow);
+    border:1px solid rgba(255,255,255,.6);
 }
 
 .stat-card h3{
-    font-size:2rem;
+    font-size:2.2rem;
     background:var(--gradient);
     -webkit-background-clip:text;
+    background-clip:text;
     color:transparent;
 }
 
+.stat-card p{
+    font-weight:600;
+    color:var(--text);
+}
+
 .services-grid,
-.team-grid,
-.testimonials-grid{
+.team-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
     gap:30px;
 }
 
 .card{
-    background:rgba(255,255,255,.75);
-    backdrop-filter:blur(16px);
-    border:1px solid rgba(255,255,255,.6);
+    background:#ffffff;
+    border:1px solid rgba(15,23,42,.06);
     border-radius:var(--radius);
-    padding:30px;
+    padding:32px;
     box-shadow:var(--shadow);
     transition:.3s;
 }
 
 .card:hover{
     transform:translateY(-8px);
+    box-shadow:var(--shadow-lg);
 }
 
 .icon{
-    width:70px;
-    height:70px;
-    border-radius:18px;
+    width:64px;
+    height:64px;
+    border-radius:16px;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:32px;
+    font-size:28px;
     color:white;
     background:var(--gradient);
     margin-bottom:20px;
@@ -283,21 +347,74 @@ header{
     text-decoration:none;
     color:var(--primary);
     font-weight:700;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    transition:.25s;
+}
+
+.learn-btn:hover{
+    gap:10px;
 }
 
 .about-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:50px;
-    align-items:center;
+    align-items:start;
+}
+
+.about-card{
+    background:var(--gradient);
+    color:white;
+    border-radius:var(--radius);
+    padding:32px;
+    box-shadow:var(--shadow-lg);
+}
+
+.about-card h3{
+    color:white;
+    margin-bottom:16px;
+}
+
+.about-card ul{
+    list-style:none;
+    padding-left:0;
+}
+
+.about-card li{
+    margin-bottom:10px;
 }
 
 .feature-list{
     list-style:none;
+    padding-left:0;
 }
 
 .feature-list li{
     margin-bottom:12px;
+    padding-left:28px;
+    position:relative;
+}
+
+.feature-list li::before{
+    content:"✔";
+    position:absolute;
+    left:0;
+    color:var(--primary);
+    font-weight:700;
+}
+
+.about-block{
+    margin-bottom:32px;
+}
+
+.about-block:last-child{
+    margin-bottom:0;
+}
+
+.team-grid{
+    margin-top:60px;
 }
 
 .team-member{
@@ -305,20 +422,22 @@ header{
 }
 
 .avatar{
-    width:90px;
-    height:90px;
-    margin:auto auto 15px;
+    width:88px;
+    height:88px;
+    margin:0 auto 18px;
     border-radius:50%;
     background:var(--gradient);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-weight:800;
+    font-size:1.5rem;
 }
 
-.testimonial{
-    position:relative;
-}
-
-.stars{
-    color:#fbbf24;
-    margin-bottom:10px;
+.team-member p{
+    color:var(--primary);
+    font-weight:600;
 }
 
 .faq-container{
@@ -331,17 +450,35 @@ header{
     overflow:hidden;
     margin-bottom:15px;
     box-shadow:var(--shadow);
+    border:1px solid rgba(15,23,42,.06);
 }
 
 .faq-question{
     width:100%;
     border:none;
-    padding:20px;
+    padding:22px 24px;
     background:white;
     text-align:left;
     cursor:pointer;
     font-size:1rem;
     font-weight:600;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:var(--dark);
+}
+
+.faq-question::after{
+    content:"+";
+    font-size:1.4rem;
+    color:var(--primary);
+    transition:.3s;
+    flex-shrink:0;
+    margin-left:16px;
+}
+
+.faq-question.active::after{
+    transform:rotate(45deg);
 }
 
 .faq-answer{
@@ -352,7 +489,7 @@ header{
 }
 
 .faq-answer p{
-    padding:20px;
+    padding:0 24px 22px;
 }
 
 .contact-grid{
@@ -366,6 +503,7 @@ header{
     padding:35px;
     border-radius:var(--radius);
     box-shadow:var(--shadow);
+    border:1px solid rgba(15,23,42,.06);
 }
 
 .form-group{
@@ -380,10 +518,19 @@ textarea{
     border:1px solid #dbe2ea;
     border-radius:12px;
     font-family:inherit;
+    font-size:.95rem;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    outline:2px solid var(--primary);
+    outline-offset:1px;
 }
 
 textarea{
     min-height:140px;
+    resize:vertical;
 }
 
 .contact-info{
@@ -391,10 +538,16 @@ textarea{
     color:white;
     padding:35px;
     border-radius:var(--radius);
+    box-shadow:var(--shadow-lg);
 }
 
 .contact-info h3{
     color:white;
+    margin-bottom:20px;
+}
+
+.contact-info p{
+    margin-bottom:14px;
 }
 
 footer{
@@ -409,9 +562,23 @@ footer{
     gap:40px;
 }
 
+footer h3{
+    color:white;
+    margin-bottom:16px;
+}
+
 footer a{
     color:#cbd5e1;
     text-decoration:none;
+}
+
+footer a:hover{
+    color:white;
+}
+
+footer p a{
+    display:inline-block;
+    margin-bottom:6px;
 }
 
 .socials{
@@ -428,6 +595,11 @@ footer a{
     display:flex;
     align-items:center;
     justify-content:center;
+    transition:.25s;
+}
+
+.socials a:hover{
+    background:var(--gradient);
 }
 
 .copyright{
@@ -435,6 +607,7 @@ footer a{
     margin-top:40px;
     border-top:1px solid rgba(255,255,255,.1);
     padding-top:25px;
+    font-size:.9rem;
 }
 
 .fade-up{
@@ -463,6 +636,7 @@ footer a{
         background:white;
         padding:25px;
         display:none;
+        gap:18px;
     }
 
     .nav-links.active{
@@ -484,6 +658,10 @@ footer a{
 
     .section-title{
         font-size:2rem;
+    }
+
+    section{
+        padding:70px 0;
     }
 }
 </style>
@@ -556,16 +734,15 @@ footer a{
 <li><a href="#home">Home</a></li>
 <li><a href="#services">Services</a></li>
 <li><a href="#about">About</a></li>
-<li><a href="#testimonials">Testimonials</a></li>
 <li><a href="#faq">FAQ</a></li>
-<li><a href="#contact">Contact</a></li>
+<li><a href="#contact" class="nav-cta">Contact</a></li>
 </ul>
 
-<div class="hamburger" id="hamburger">
+<button class="hamburger" id="hamburger" aria-label="Toggle navigation">
 <span></span>
 <span></span>
 <span></span>
-</div>
+</button>
 </div>
 </header>
 
@@ -612,10 +789,13 @@ We help businesses increase operational efficiency with top-tier Virtual Assista
 <section id="services">
 <div class="container">
 
+<div class="section-header">
+<span class="eyebrow">What We Do</span>
 <h2 class="section-title">Our Solutions</h2>
 <p class="section-subtitle">
 Comprehensive services designed to optimize your operations and maximize your online visibility.
 </p>
+</div>
 
 <div class="services-grid">
 
@@ -675,40 +855,44 @@ Comprehensive services designed to optimize your operations and maximize your on
 </div>
 </section>
 
-<section id="about">
+<section id="about" class="section-alt">
 <div class="container">
 
+<div class="section-header">
+<span class="eyebrow">About Us</span>
 <h2 class="section-title">About HiRank</h2>
+</div>
 
 <div class="about-grid">
 
 <div>
+<div class="about-block">
 <h3>Our Mission</h3>
 <p>
 Empowering businesses to achieve sustainable growth by bridging the gap between high-performing SEO strategies and world-class virtual talent.
 </p>
+</div>
 
-<br>
-
+<div class="about-block">
 <h3>Why Choose Us</h3>
-
 <ul class="feature-list">
-<li>✔ Rigorous Talent Vetting</li>
-<li>✔ Proven SEO Results</li>
-<li>✔ Transparent Communication</li>
-<li>✔ Custom Growth Strategies</li>
-<li>✔ Dedicated Support</li>
+<li>Rigorous Talent Vetting</li>
+<li>Proven SEO Results</li>
+<li>Transparent Communication</li>
+<li>Custom Growth Strategies</li>
+<li>Dedicated Support</li>
 </ul>
+</div>
 
-<br>
-
+<div class="about-block">
 <h3>Experience</h3>
 <p>
 Our team combines digital marketing expertise with specialized recruitment experience to deliver a powerful hybrid solution for scaling businesses.
 </p>
 </div>
+</div>
 
-<div class="card">
+<div class="about-card">
 <h3>Our Core Values</h3>
 <ul>
 <li>Integrity & Transparency</li>
@@ -721,80 +905,24 @@ Our team combines digital marketing expertise with specialized recruitment exper
 
 </div>
 
-<br><br>
-
 <div class="team-grid">
 
 <div class="card team-member">
-<div class="avatar"></div>
+<div class="avatar">VA</div>
 <h3>Vivien Aguilar</h3>
 <p>Talent & Sourcing Strategist</p>
 </div>
 
 <div class="card team-member">
-<div class="avatar"></div>
+<div class="avatar">KC</div>
 <h3>King Canaria</h3>
 <p>Technical SEO Lead</p>
 </div>
 
 <div class="card team-member">
-<div class="avatar"></div>
+<div class="avatar">MQ</div>
 <h3>Mark Quintana</h3>
 <p>Content & Operations Director</p>
-</div>
-
-</div>
-
-</div>
-</section>
-
-<section id="testimonials">
-<div class="container">
-
-<h2 class="section-title">Client Success Stories</h2>
-
-<div class="testimonials-grid">
-
-<div class="card testimonial">
-<div class="stars">★★★★★</div>
-<h4>John Smith</h4>
-<p>GrowthTech</p>
-<p>Traffic increased dramatically, and the VA we hired completely streamlined our back office.</p>
-</div>
-
-<div class="card testimonial">
-<div class="stars">★★★★★</div>
-<h4>Lisa Adams</h4>
-<p>Local Dental Group</p>
-<p>Excellent communication and measurable SEO growth. Highly recommend!</p>
-</div>
-
-<div class="card testimonial">
-<div class="stars">★★★★★</div>
-<h4>David Clark</h4>
-<p>Legal Solutions</p>
-<p>The specialized legal intake VA they sourced for us was a game changer.</p>
-</div>
-
-<div class="card testimonial">
-<div class="stars">★★★★★</div>
-<h4>Emma Lewis</h4>
-<p>Ecommerce Hub</p>
-<p>Organic sales increased significantly after we implemented their link-building strategy.</p>
-</div>
-
-<div class="card testimonial">
-<div class="stars">★★★★★</div>
-<h4>Ryan Cooper</h4>
-<p>SaaS Ventures</p>
-<p>Professional team, top-notch virtual talent, and transparent reporting.</p>
-</div>
-
-<div class="card testimonial">
-<div class="stars">★★★★★</div>
-<h4>Sophia Hall</h4>
-<p>Home Services Co.</p>
-<p>Strong local SEO results and our new customer support VA handles leads perfectly.</p>
 </div>
 
 </div>
@@ -805,7 +933,10 @@ Our team combines digital marketing expertise with specialized recruitment exper
 <section id="faq">
 <div class="container">
 
+<div class="section-header">
+<span class="eyebrow">FAQ</span>
 <h2 class="section-title">Frequently Asked Questions</h2>
+</div>
 
 <div class="faq-container">
 
@@ -839,10 +970,13 @@ Our team combines digital marketing expertise with specialized recruitment exper
 </div>
 </section>
 
-<section id="contact">
+<section id="contact" class="section-alt">
 <div class="container">
 
+<div class="section-header">
+<span class="eyebrow">Get In Touch</span>
 <h2 class="section-title">Let's Build Your Dream Team & Traffic</h2>
+</div>
 
 <div class="contact-grid">
 
@@ -883,7 +1017,6 @@ Get Started Today
 
 <div class="contact-info">
 <h3>Contact Information</h3>
-<br>
 <p><strong>Email:</strong> king.canaria@gmail.com</p>
 <p><strong>Phone:</strong> +63-961-473-4716</p>
 <p><strong>Business Hours:</strong> Mon–Fri, 9AM–6PM</p>
@@ -932,9 +1065,7 @@ Get Started Today
 <a href="#" aria-label="Twitter">x</a>
 </div>
 
-<br>
-
-<p><a href="#">Privacy Policy</a></p>
+<p style="margin-top:20px;"><a href="#">Privacy Policy</a></p>
 <p><a href="#">Terms & Conditions</a></p>
 
 </div>
@@ -965,14 +1096,18 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 document.querySelectorAll('.faq-question').forEach(item => {
     item.addEventListener('click', () => {
         const answer = item.nextElementSibling;
+        const isOpen = !!answer.style.maxHeight;
 
-        if(answer.style.maxHeight){
-            answer.style.maxHeight = null;
-        }else{
-            document.querySelectorAll('.faq-answer').forEach(a=>{
-                a.style.maxHeight = null;
-            });
+        document.querySelectorAll('.faq-answer').forEach(a=>{
+            a.style.maxHeight = null;
+        });
+        document.querySelectorAll('.faq-question').forEach(q=>{
+            q.classList.remove('active');
+        });
+
+        if(!isOpen){
             answer.style.maxHeight = answer.scrollHeight + "px";
+            item.classList.add('active');
         }
     });
 });
